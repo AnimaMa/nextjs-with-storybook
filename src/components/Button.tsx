@@ -4,6 +4,7 @@ export interface ButtonProps {
   label: string;
   size: "sm" | "md" | "lg";
   bgColor: string;
+  handleClick: () => void;
 }
 
 export const ButtonSpace = (size: string) => {
@@ -16,7 +17,7 @@ export const ButtonSpace = (size: string) => {
   }
 };
 export const Button = (props: ButtonProps) => {
-  const { label, bgColor, size } = props;
+  const { label, bgColor, size, handleClick } = props;
   const style = {
     backgroundColor: bgColor,
     border: "none",
@@ -25,7 +26,7 @@ export const Button = (props: ButtonProps) => {
 
   return (
     <>
-      <button style={style}>{label}</button>
+      <button style={style} onClick={handleClick}>{label}</button>
     </>
   );
 };
